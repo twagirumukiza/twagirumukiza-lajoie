@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Joie</title>
+  <meta name="description" content="La Joie — portraits noir et blanc autour de la joie, de la résistance intérieure et de l'énergie positive." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f3efe8;
+      --paper:#fbfaf7;
+      --ink:#111111;
+      --muted:#6d675f;
+      --line:#ddd4c8;
+      --soft:#ede7dc;
+      --radius:28px;
+      --shadow:0 18px 48px rgba(0,0,0,.06);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    .wrap{width:min(1180px,92vw);margin:0 auto}
+    header{position:sticky;top:0;z-index:30;background:rgba(243,239,232,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(221,212,200,.95)}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:16px 0}
+    .brand{font-size:.88rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+    .nav-right{display:flex;align-items:center;gap:18px}
+    .menu{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
+    .menu a:hover{color:var(--ink)}
+    .lang-switch{display:flex;gap:6px;align-items:center;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:6px}
+    .lang-switch button{border:0;background:transparent;padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:700;color:var(--muted)}
+    .lang-switch button.active{background:var(--ink);color:#fff}
+
+    .hero{padding:58px 0 44px}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:36px;align-items:center}
+    .eyebrow{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+    h1{margin:0 0 16px;font-size:clamp(3.4rem,8vw,6.8rem);line-height:.9;letter-spacing:-.06em;font-weight:800}
+    .lead{max-width:720px;margin:0 0 24px;color:var(--muted);font-size:1.08rem}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:999px;border:1px solid var(--ink);font-size:.95rem;font-weight:600;transition:.2s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-dark{background:var(--ink);color:#fff}
+    .btn-light{background:var(--paper)}
+    .chips{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{display:inline-flex;padding:9px 13px;border-radius:999px;border:1px solid var(--line);background:var(--paper);font-size:.88rem;color:var(--muted)}
+    .hero-card,.panel,.work-card,.message-card,.artist-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero-card{padding:18px}
+    .hero-link{display:block;overflow:hidden;border-radius:20px;background:#000}
+    .hero-link img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .35s ease,opacity .35s ease}
+    .hero-link:hover img{transform:scale(1.02);opacity:.98}
+    .hero-note{padding:12px 6px 2px;color:var(--muted);text-align:right;font-size:.92rem}
+
+.footer-social {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.social-icons {
+  display:flex;
+  gap:16px;
+}
+
+.social-icons img {
+  width:28px;
+  height:28px;
+  opacity:0.7;
+  transition:0.2s ease;
+}
+
+.social-icons img:hover {
+  opacity:1;
+  transform:translateY(-2px);
+}
+
+    section{padding:74px 0;border-top:1px solid var(--line)}
+    h2{margin:0 0 12px;font-size:clamp(1.9rem,4vw,3.6rem);line-height:.96;letter-spacing:-.04em;font-weight:800}
+    .section-intro{max-width:800px;margin:0 0 26px;color:var(--muted);font-size:1.02rem}
+    .story-grid,.artist-layout,.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .panel{padding:28px}
+    .mini{font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+    .quote{font-size:1.34rem;line-height:1.45;letter-spacing:-.02em;margin:0 0 12px}
+    .works{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .work-card{overflow:hidden}
+    .work-thumb{display:block;background:#000}
+    .work-thumb img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .35s ease,opacity .35s ease}
+    .work-thumb:hover img{transform:scale(1.03);opacity:.98}
+    .work-body{padding:18px}
+    .work-title{margin:0 0 4px;font-size:1.12rem;font-weight:700;letter-spacing:-.02em}
+    .work-meta{margin:0 0 10px;color:var(--muted);font-size:.9rem}
+    .work-text{margin:0 0 14px;font-size:.97rem;color:#2f2b27}
+    .text-link{display:inline-flex;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:.87rem;font-weight:600}
+    .variation{display:grid;grid-template-columns:.95fr 1.05fr;gap:24px;align-items:center}
+    .variation-visual{overflow:hidden;border-radius:22px;border:1px solid var(--line)}
+    .variation-visual img{width:100%;aspect-ratio:4/5;object-fit:cover}
+    .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 20px;margin-top:18px}
+    .fact{padding:12px 0;border-bottom:1px solid var(--line)}
+    .fact b{display:block;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+    .fact span{color:var(--muted)}
+    .artist-card{padding:18px}
+    .artist-card img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:18px}
+    .message-card{padding:28px}
+    .mail{font-size:1.18rem;font-weight:700;letter-spacing:-.02em}
+    footer{padding:26px 0 48px;color:var(--muted);font-size:.94rem}
+
+    @media (max-width:1020px){
+      .hero-grid,.story-grid,.artist-layout,.footer-grid,.variation,.facts,.works{grid-template-columns:1fr}
+    }
+    @media (max-width:760px){
+      .menu{display:none}
+      .nav{align-items:flex-start}
+      .nav-right{flex-direction:column;align-items:flex-end}
+      section{padding:56px 0}
+      h1{font-size:clamp(3rem,16vw,5.4rem)}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">TWAGIRUMUKIZA</div>
+      <div class="nav-right">
+        <nav class="menu">
+          <a href="#story" data-fr="Histoire" data-en="Story">Histoire</a>
+          <a href="#portraits" data-fr="Portraits" data-en="Portraits">Portraits</a>
+          <a href="#colors" data-fr="Couleurs" data-en="Colors">Couleurs</a>
+          <a href="#artist" data-fr="Artiste" data-en="Artist">Artiste</a>
+          <a href="#thanks" data-fr="Merci" data-en="Thanks">Merci</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language selector">
+          <button type="button" id="btn-fr" onclick="setLanguage('fr')">FR</button>
+          <button type="button" id="btn-en" onclick="setLanguage('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top" style="border-top:none">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow" data-fr="Galerie · Noir et blanc · Œuvre originale" data-en="Gallery · Black and white · Original artwork">Galerie · Noir et blanc · Œuvre originale</div>
+          <h1 data-fr="La Joie" data-en="Joy">La Joie</h1>
+          <p class="lead"
+             data-fr="Une série de portraits en noir et blanc pensée pendant les périodes difficiles, pour garder l’énergie positive, rester debout et dépasser les problèmes sans perdre la lumière intérieure."
+             data-en="A black-and-white portrait series imagined during difficult times, to keep positive energy alive, stay upright, and move through problems without losing inner light.">
+             Une série de portraits en noir et blanc pensée pendant les périodes difficiles, pour garder l’énergie positive, rester debout et dépasser les problèmes sans perdre la lumière intérieure.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-dark" href="#portraits" data-fr="Voir la série" data-en="View the series">Voir la série</a>
+            <a class="btn btn-light" href="#thanks" data-fr="Contact" data-en="Contact">Contact</a>
+          </div>
+          <div class="chips">
+            <span class="chip" data-fr="Style simple et puriste" data-en="Simple and purist style">Style simple et puriste</span>
+            <span class="chip" data-fr="Noir et blanc" data-en="Black and white">Noir et blanc</span>
+            <span class="chip" data-fr="Existe aussi en couleurs" data-en="Also exists in color">Existe aussi en couleurs</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <a class="hero-link" href="viewer.html?src=images/joie-1.jpg&title=La%20Joie&back=index.html%23top" target="_blank" rel="noopener">
+            <img src="images/joie-1.jpg" alt="La Joie" />
+          </a>
+          <div class="hero-note" data-fr="Image d’en-tête · La Joie" data-en="Header image · Joy">Image d’en-tête · La Joie</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="wrap">
+        <h2 data-fr="Une énergie tenue vivante." data-en="An energy kept alive.">Une énergie tenue vivante.</h2>
+        <p class="section-intro"
+           data-fr="Ces portraits ont été réalisés comme une réponse intérieure aux moments difficiles. Ils ne cherchent pas à nier l’épreuve, mais à garder une respiration, une présence, une force simple et lumineuse."
+           data-en="These portraits were made as an inner response to difficult moments. They do not deny hardship; they hold onto breath, presence, and a simple luminous strength.">
+           Ces portraits ont été réalisés comme une réponse intérieure aux moments difficiles. Ils ne cherchent pas à nier l’épreuve, mais à garder une respiration, une présence, une force simple et lumineuse.
+        </p>
+        <div class="story-grid">
+          <div class="panel">
+            <div class="mini" data-fr="Intention" data-en="Intention">Intention</div>
+            <p class="quote"
+               data-fr="Garder l’énergie positive. Continuer. Overcome all the problems."
+               data-en="Keep positive energy alive. Continue. Overcome all the problems.">
+               Garder l’énergie positive. Continuer. Overcome all the problems.
+            </p>
+            <p data-fr="Le noir et blanc enlève le superflu et laisse seulement l’essentiel : un regard, une bouche, un souffle, un sourire. La joie devient alors une décision visuelle et intérieure." data-en="Black and white removes the unnecessary and leaves only what matters: a gaze, a mouth, a breath, a smile. Joy then becomes both a visual and inner decision.">Le noir et blanc enlève le superflu et laisse seulement l’essentiel : un regard, une bouche, un souffle, un sourire. La joie devient alors une décision visuelle et intérieure.</p>
+          </div>
+          <div class="panel">
+            <div class="mini" data-fr="Figures et visages" data-en="Figures and faces">Figures et visages</div>
+            <p data-fr="La série rassemble Martin Luther King, Angela Davis, Bob Marley, Jack Johnson, Manu Dibango, ainsi que des portraits anonymes. Toutes ces présences racontent la même chose : une joie qui tient, qui résiste, qui avance." data-en="The series brings together Martin Luther King, Angela Davis, Bob Marley, Jack Johnson, Manu Dibango, as well as anonymous portraits. All these presences tell the same story: a joy that holds, resists, and moves forward.">La série rassemble Martin Luther King, Angela Davis, Bob Marley, Jack Johnson, Manu Dibango, ainsi que des portraits anonymes. Toutes ces présences racontent la même chose : une joie qui tient, qui résiste, qui avance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portraits">
+      <div class="wrap">
+        <h2 data-fr="Portraits" data-en="Portraits">Portraits</h2>
+        <p class="section-intro" data-fr="Une série de visages pour garder l’élan, la dignité et la lumière. Cliquez sur une image pour l’ouvrir dans un autre onglet." data-en="A series of faces to keep momentum, dignity, and light. Click an image to open it in another tab.">Une série de visages pour garder l’élan, la dignité et la lumière. Cliquez sur une image pour l’ouvrir dans un autre onglet.</p>
+        <div class="works">
+          <article class="work-card">
+            <a class="work-thumb" href="viewer.html?src=images/joie-1.jpg&title=La%20Joie&back=index.html%23portraits" target="_blank" rel="noopener"><img src="images/joie-1.jpg" alt="La Joie" /></a>
+            <div class="work-body">
+              <h3 class="work-title" data-fr="La Joie" data-en="Joy">La Joie</h3>
+              <p class="work-meta" data-fr="portrait anonyme · énergie retrouvée" data-en="anonymous portrait · renewed energy">portrait anonyme · énergie retrouvée</p>
+              <p class="work-text" data-fr="Un visage ouvert, direct, presque respiratoire. Une œuvre pensée pour garder le mouvement intérieur. Painting, Acrylic on Paper
+
+Size: 50 W x 70 H x 0.2 D cm" data-en="An open, direct, almost breathing face. A work imagined to keep inner movement alive. Painting, Acrylic on Paper
+
+Size: 51 W x 58 H x 0.2 D cm">Un visage ouvert, direct, presque respiratoire. Une œuvre pensée pour garder le mouvement intérieur.</p>
+              <a class="text-link" href="viewer.html?src=images/joie-1.jpg&title=La%20Joie&back=index.html%23portraits" target="_blank" rel="noopener" data-fr="Ouvrir l’image" data-en="Open image">Ouvrir l’image</a>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <a class="work-thumb" href="viewer.html?src=images/joie-2.jpg&title=La%20Joie%202&back=index.html%23portraits" target="_blank" rel="noopener"><img src="images/joie-2.jpg" alt="La Joie 2" /></a>
+            <div class="work-body">
+              <h3 class="work-title" data-fr="La Joie 2" data-en="Joy 2">La Joie 2</h3>
+              <p class="work-meta" data-fr="portrait anonyme · variation" data-en="anonymous portrait · variation">portrait anonyme · variation</p>
+              <p class="work-text" data-fr="Une autre vibration de la même promesse : garder un espace de lumière malgré tout. Painting, Acrylic on Paper
+
+Size: 50 W x 70 H x 0.2 D cm" data-en="Another vibration of the same promise: keep a space of light despite everything. Painting, Acrylic on Paper
+
+Size: 51 W x 58 H x 0.2 D cm">Une autre vibration de la même promesse : garder un espace de lumière malgré tout.</p>
+              <a class="text-link" href="viewer.html?src=images/joie-2.jpg&title=La%20Joie%202&back=index.html%23portraits" target="_blank" rel="noopener" data-fr="Ouvrir l’image" data-en="Open image">Ouvrir l’image</a>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <a class="work-thumb" href="viewer.html?src=images/angela-davis.jpg&title=Angela%20Davis&back=index.html%23portraits" target="_blank" rel="noopener"><img src="images/angela-davis.jpg" alt="Angela Davis" /></a>
+            <div class="work-body">
+              <h3 class="work-title">Angela Davis</h3>
+              <p class="work-meta" data-fr="force · pensée · dignité" data-en="strength · thought · dignity">force · pensée · dignité</p>
+              <p class="work-text" data-fr="Une présence debout, dense, intérieure. Le portrait garde la force et la clarté. Painting, Acrylic on Paper
+
+Size: 50 W x 70 H x 0.2 D cm" data-en="An upright, dense, inner presence. The portrait keeps strength and clarity alive. Painting, Acrylic on Paper
+
+Size: 51 W x 58 H x 0.2 D cm">Une présence debout, dense, intérieure. Le portrait garde la force et la clarté.</p>
+              <a class="text-link" href="viewer.html?src=images/angela-davis.jpg&title=Angela%20Davis&back=index.html%23portraits" target="_blank" rel="noopener" data-fr="Ouvrir l’image" data-en="Open image">Ouvrir l’image</a>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <a class="work-thumb" href="viewer.html?src=images/martin-luther-king.jpg&title=Martin%20Luther%20King&back=index.html%23portraits" target="_blank" rel="noopener"><img src="images/martin-luther-king.jpg" alt="Martin Luther King" /></a>
+            <div class="work-body">
+              <h3 class="work-title">Martin Luther King</h3>
+              <p class="work-meta" data-fr="espoir · élévation" data-en="hope · uplift">espoir · élévation</p>
+              <p class="work-text" data-fr="Un sourire qui ouvre un horizon. Une joie qui porte plus loin que le cadre. Painting, Acrylic on Paper
+
+Size: 50 W x 70 H x 0.2 D cm" data-en="A smile that opens a horizon. A joy that carries farther than the frame. Painting, Acrylic on Paper
+
+Size: 51 W x 58 H x 0.2 D cm">Un sourire qui ouvre un horizon. Une joie qui porte plus loin que le cadre.</p>
+              <a class="text-link" href="viewer.html?src=images/martin-luther-king.jpg&title=Martin%20Luther%20King&back=index.html%23portraits" target="_blank" rel="noopener" data-fr="Ouvrir l’image" data-en="Open image">Ouvrir l’image</a>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <a class="work-thumb" href="viewer.html?src=images/bob-marley.jpg&title=Bob%20Marley&back=index.html%23portraits" target="_blank" rel="noopener"><img src="images/bob-marley.jpg" alt="Bob Marley" /></a>
+            <div class="work-body">
+              <h3 class="work-title">Bob Marley</h3>
+              <p class="work-meta" data-fr="musique · vibration · liberté" data-en="music · vibration · freedom">musique · vibration · liberté</p>
+              <p class="work-text" data-fr="Le sourire devient rythme. Le portrait tient une énergie libre et immédiate. Painting, Acrylic on Paper
+
+Size: 50 W x 70 H x 0.2 D cm" data-en="The smile becomes rhythm. The portrait holds a free and immediate energy. Painting, Acrylic on Paper
+
+Size: 51 W x 58 H x 0.2 D cm">Le sourire devient rythme. Le portrait tient une énergie libre et immédiate.</p>
+              <a class="text-link" href="viewer.html?src=images/bob-marley.jpg&title=Bob%20Marley&back=index.html%23portraits" target="_blank" rel="noopener" data-fr="Ouvrir l’image" data-en="Open image">Ouvrir l’image</a>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <a class="work-thumb" href="viewer.html?src=images/jack-johnson.jpg&title=Jack%20Johnson&back=index.html%23portraits" target="_blank" rel="noopener"><img src="images/jack-johnson.jpg" alt="Jack Johnson" /></a>
+            <div class="work-body">
+              <h3 class="work-title">Jack Johnson</h3>
+              <p class="work-meta" data-fr="charisme · victoire" data-en="charisma · victory">charisme · victoire</p>
+              <p class="work-text" data-fr="Une image immédiate, forte, presque iconique. Le sourire devient puissance visuelle. Painting, Acrylic on Paper
+
+Size: 50 W x 70 H x 0.2 D cm" data-en="An immediate, strong, almost iconic image. The smile becomes visual power. Painting, Acrylic on Paper
+
+Size: 51 W x 58 H x 0.2 D cm">Une image immédiate, forte, presque iconique. Le sourire devient puissance visuelle.</p>
+              <a class="text-link" href="viewer.html?src=images/jack-johnson.jpg&title=Jack%20Johnson&back=index.html%23portraits" target="_blank" rel="noopener" data-fr="Ouvrir l’image" data-en="Open image">Ouvrir l’image</a>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <a class="work-thumb" href="viewer.html?src=images/manu-dibango.jpg&title=Manu%20Dibango&back=index.html%23portraits" target="_blank" rel="noopener"><img src="images/manu-dibango.jpg" alt="Manu Dibango" /></a>
+            <div class="work-body">
+              <h3 class="work-title">Manu Dibango</h3>
+              <p class="work-meta" data-fr="souffle · joie · rythme intérieur" data-en="breath · joy · inner rhythm">souffle · joie · rythme intérieur</p>
+              <p class="work-text" data-fr="Une présence généreuse, lumineuse, traversée par la musique et la liberté. Painting, Acrylic on Paper
+
+Size: 50 W x 70 H x 0.2 D cm" data-en="A generous, luminous presence carried by music and freedom.">Une présence généreuse, lumineuse, traversée par la musique et la liberté.</p>
+              <a class="text-link" href="viewer.html?src=images/manu-dibango.jpg&title=Manu%20Dibango&back=index.html%23portraits" target="_blank" rel="noopener" data-fr="Ouvrir l’image" data-en="Open image">Ouvrir l’image</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="colors">
+      <div class="wrap">
+        <h2 data-fr="En plusieurs couleurs" data-en="In several colors">En plusieurs couleurs</h2>
+        <p class="section-intro" data-fr="Même si ces portraits existent en noir et blanc, certains vivent aussi dans des déclinaisons colorées. La forme reste simple et forte, mais l’atmosphère devient plus chaude, décorative et intérieure." data-en="Although these portraits exist in black and white, some also live in color variations. The form remains simple and strong, while the atmosphere becomes warmer, more decorative and more interior.">Même si ces portraits existent en noir et blanc, certains vivent aussi dans des déclinaisons colorées. La forme reste simple et forte, mais l’atmosphère devient plus chaude, décorative et intérieure.</p>
+        <div class="variation">
+          <div class="variation-visual">
+            <a href="viewer.html?src=images/joie-1-room.jpg&title=La%20Joie%20en%20couleur&back=index.html%23colors" target="_blank" rel="noopener"><img src="images/joie-1-room.jpg" alt="La Joie en couleur" /></a>
+          </div>
+          <div class="panel">
+            <div class="mini" data-fr="Variation" data-en="Variation">Variation</div>
+            <p data-fr="La couleur ne remplace pas le noir et blanc. Elle propose une autre respiration. Le portrait devient plus enveloppant, plus calme, plus installé dans l’espace intérieur." data-en="Color does not replace black and white. It offers another kind of breathing. The portrait becomes more enveloping, calmer, and more rooted in an interior space.">La couleur ne remplace pas le noir et blanc. Elle propose une autre respiration. Le portrait devient plus enveloppant, plus calme, plus installé dans l’espace intérieur.</p>
+            <div class="facts">
+              <div class="fact"><b data-fr="Série" data-en="Series">Série</b><span data-fr="Portraits de la joie" data-en="Joy portraits">Portraits de la joie</span></div>
+              <div class="fact"><b data-fr="Langage" data-en="Language">Langage</b><span data-fr="minimal, contrasté, direct" data-en="minimal, contrasted, direct">minimal, contrasté, direct</span></div>
+              <div class="fact"><b data-fr="Esprit" data-en="Spirit">Esprit</b><span data-fr="simple, puriste, lumineux" data-en="simple, purist, luminous">simple, puriste, lumineux</span></div>
+              <div class="fact"><b data-fr="Ouverture" data-en="Opening">Ouverture</b><span data-fr="chaque image s’ouvre dans un autre onglet" data-en="each image opens in another tab">chaque image s’ouvre dans un autre onglet</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="artist">
+      <div class="wrap artist-layout">
+        <div>
+          <h2 data-fr="L’artiste" data-en="The artist">L’artiste</h2>
+          <p class="section-intro" data-fr="TWAGIRUMUKIZA développe un langage visuel réduit à l’essentiel, où le contraste devient présence et où le portrait devient énergie. la simplification radicale sert l'intensité émotionnelle. À travers ces portraits, il cherche moins à reproduire un visage qu'à révéler une présence, une énergie et une capacité à traverser les épreuves sans céder.
+
+Dans cette série, la joie n'est pas décorative au sens faible du terme. Elle devient une matière noble, une force de composition, une manière de continuer à créer et à respirer pendant les périodes difficiles." data-en="TWAGIRUMUKIZA develops a visual language reduced to the essential, where contrast becomes presence and where the portrait becomes energy. radical simplification serves emotional intensity. Through these portraits, he seeks less to reproduce a face than to reveal a presence, an energy and an ability to go through ordeals without giving in.
+
+In this series, joy is not decorative in the weak sense of the term. It becomes a noble material, a compositional force, a way of continuing to create and breathe during difficult times.">TWAGIRUMUKIZA développe un langage visuel réduit à l’essentiel, où le contraste devient présence et où le portrait devient énergie.</p>
+          <div class="panel">
+            <div class="mini" data-fr="À propos" data-en="About">À propos</div>
+            <p data-fr="Cette série se tient à la frontière entre portrait, signe graphique et respiration intérieure. Elle cherche moins à décrire qu’à faire sentir une force immédiate." data-en="This series stands at the edge of portrait, graphic sign and inner breath. It seeks less to describe than to make an immediate force felt.">Cette série se tient à la frontière entre portrait, signe graphique et respiration intérieure. Elle cherche moins à décrire qu’à faire sentir une force immédiate.</p>
+          </div>
+        </div>
+        <div class="artist-card">
+          <img src="images/artist.jpg" alt="TWAGIRUMUKIZA" />
+        </div>
+      </div>
+    </section>
+
+    <section id="thanks">
+      <div class="wrap footer-grid">
+        <div class="message-card">
+          <div class="mini" data-fr="Merci" data-en="Thank you">Merci</div>
+          <h2 data-fr="Merci d’avoir visité le site." data-en="Thank you for visiting the site.">Merci d’avoir visité le site.</h2>
+          <p data-fr="J’espère que cette série vous aura transmis un peu de lumière, de force et d’énergie positive. Pour toute question, disponibilité d’une œuvre, exposition ou acquisition, vous pouvez écrire directement à :" data-en="I hope this series has shared with you a little light, strength, and positive energy. For any question, artwork availability, exhibition, or acquisition, you can write directly to:">J’espère que cette série vous aura transmis un peu de lumière, de force et d’énergie positive. Pour toute question, disponibilité d’une œuvre, exposition ou acquisition, vous pouvez écrire directement à :</p>
+          <p class="mail"><a href="mailto:inno.twa@gmail.com">inno.twa@gmail.com</a></p>
+        </div>
+        <div class="panel">
+          <div class="mini" data-fr="Contact" data-en="Contact">Contact</div>
+          <p data-fr="Chaque œuvre originale est proposée en édition limitée, jusqu’à 10 exemplaires maximum.
+Des impressions sont disponibles sur demande ou directement via Saatchi Art." data-en="Each original artwork is released in a limited edition of up to 10 pieces.
+Prints are available upon request or via Saatchi Art..">Chaque image s’ouvre dans un autre onglet avec un bouton de retour vers le site. Le site est disponible en français et en anglais.</p>
+          <a class="btn btn-dark" href="mailto:inno.twa@gmail.com">Email</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<footer>
+  <div class="wrap footer-social">
+    <div>TWAGIRUMUKIZA · La Joie</div>
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/inno_twag/" target="_blank" rel="noopener">
+        <img src="images/instagram.png" alt="Instagram">
+      </a>
+
+      <a href="https://fr.pinterest.com/innocenttwagirumukiza" target="_blank" rel="noopener">
+        <img src="images/pinterest.png" alt="Pinterest">
+      </a>
+
+      <a href="https://www.saatchiart.com/en-fr/twagirumukiza/" target="_blank" rel="noopener">
+        <img src="images/saatchi.png" alt="Saatchi Art">
+      </a>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    function setLanguage(lang){
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-fr]').forEach(el => {
+        const value = el.getAttribute('data-' + lang);
+        if(value){ el.innerHTML = value; }
+      });
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      try{ localStorage.setItem('twag_lang', lang); }catch(e){}
+    }
+    let saved = 'fr';
+    try{ saved = localStorage.getItem('twag_lang') || 'fr'; }catch(e){}
+    setLanguage(saved);
+  </script>
+</body>
+</html>
